@@ -36,7 +36,7 @@ public class AuthServiceImpl implements AuthService {
         validateRegisterRequestStrings(registerRequest);
         User user = User.builder()
                 .email(registerRequest.getEmail())
-                .role(Role.USER)
+                .role(Role.ROLE_USER)
                 .password(bCryptPasswordEncoder.encode(registerRequest.getPassword()))
                 .isEnabled(true)
                 .build();
