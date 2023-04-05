@@ -12,4 +12,5 @@ public interface ChatService {
     Chat addNewMembersToAChat(Long chatId, Set<Long> chatUserIds);
     List<Chat> getUserChats(String nickName);
     Chat findById(Long chatId);
+    List<Chat> getUserChatsByEmail(String email);
 }

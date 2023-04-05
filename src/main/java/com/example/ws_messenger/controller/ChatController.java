@@ -35,4 +35,9 @@ public class ChatController {
     public List<Chat> getChatsByUserNickname(@PathVariable("nickname") String nickname) {
         return chatService.getUserChats(nickname);
     }
+
+    @GetMapping("/user/email/{email}")
+    public List<Chat> getChatsByUserEmail(@PathVariable("email") String email) {
+        return chatService.getUserChatsByEmail(email);
+    }
 }

@@ -12,4 +12,6 @@ public interface ChatRepository extends MongoRepository<Chat, Long> {
     boolean existsByChatName(String chatName);
     @Query(value = "{'users.nickname' : ?0}")
     List<Chat> findByUsers(String userNickname);
+    @Query(value = "{'users.email' : ?0}")
+    List<Chat> findByUsersEmail(String userNickname);
 }
