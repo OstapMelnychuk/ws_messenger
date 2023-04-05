@@ -8,11 +8,11 @@ This project is using two databases: MySql and MongoDb.
 To install MySql visit a link: https://www.mysql.com/downloads/
 
 ### MongoDB setup
-If you have docker, go to project root and open terminal. Enter command:
+If you have docker, go to project root and open a terminal. Enter command:
 ```docker-compose up```
 
 This command will install a Mongodb instance in your docker.
-To configure database credentials, edit them in **docker-compose.yaml** file:
+To configure database credentials, edit them in the **docker-compose.yaml** file:
 ```
       - MONGO_INITDB_ROOT_USERNAME=
       - MONGO_INITDB_ROOT_PASSWORD=
@@ -22,7 +22,7 @@ To configure database credentials, edit them in **docker-compose.yaml** file:
 If you don`t have MongoDb visit https://www.mongodb.com/try/download/community
 
 ### Configuration
-Open application properties and fill this fields with you db credentials.
+Open _application.properties_ file in _"/src/main/resources/"_ and fill these fields with your db credentials.
 
 _For MySql:_
 ```
@@ -34,5 +34,7 @@ _For MongoDb:_
       spring.data.mongodb.username=
       spring.data.mongodb.password=
 ```
+
+This project is configured with default database ports _(ex. MySql default url localhost:3306)_. If your dbs are configured differently, change settings in _application.properties_ file.
 
 **And as a final step just run your application!**
