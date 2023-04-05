@@ -33,4 +33,9 @@ public class ChatUserServiceImpl implements ChatUserService {
         chatUserRepository.save(chatUser);
         return chatUser.getId();
     }
+
+    public ChatUserDto getChatUserByEmail(String email) {
+        ChatUser chatUser = chatUserRepository.findByEmail(email).orElseThrow(() -> new IllegalArgumentException("Chat user with email %s not found".formatted(email)));
+        return ChatUserDto.builder().email(chatUser.getEmail()).nickname(chatUser.getNickname()).build();
+    }
 }

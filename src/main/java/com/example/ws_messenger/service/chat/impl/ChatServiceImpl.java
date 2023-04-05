@@ -56,4 +56,8 @@ public class ChatServiceImpl implements ChatService {
     public List<Chat> getUserChats(String nickName) {
         return chatRepository.findByUsers(nickName);
     }
+
+    public List<Chat> getUserChatsByEmail(String email) {
+        return chatRepository.findByUsersEmail(email);
+    }
 }

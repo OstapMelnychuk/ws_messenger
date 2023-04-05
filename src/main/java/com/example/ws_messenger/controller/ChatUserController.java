@@ -4,10 +4,7 @@ import com.example.ws_messenger.dto.ChatUserDto;
 import com.example.ws_messenger.service.chat_user.ChatUserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/api/v1/chat-user")
@@ -18,6 +15,11 @@ public class ChatUserController {
     @PostMapping
     public ResponseEntity<Long> createChatUser(@RequestBody ChatUserDto chatUserDto) {
         return ResponseEntity.status(204).body(chatUserService.createChatUser(chatUserDto));
+    }
+
+    @GetMapping("/email/{email}")
+    public ResponseEntity<ChatUserDto> getChatUserByEmail(@PathVariable("email") String email) {
+        return ResponseEntity.ok(chatUserService.getChatUserByEmail(email));
     }
 
 //    @DeleteMapping("/{id}")
