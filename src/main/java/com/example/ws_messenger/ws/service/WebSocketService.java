@@ -14,4 +14,9 @@ public class WebSocketService {
         String destination = "/topic/messages/" + message.getChatId();
         simpMessagingTemplate.convertAndSend(destination, message);
     }
+
+    public void sendErrorMessage(String errorMessage, Long chatId) {
+        String destination = "/topic/messages/" + chatId;
+        simpMessagingTemplate.convertAndSend(destination, errorMessage);
+    }
 }

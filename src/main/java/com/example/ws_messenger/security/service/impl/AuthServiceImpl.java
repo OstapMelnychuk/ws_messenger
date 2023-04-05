@@ -30,7 +30,7 @@ public class AuthServiceImpl implements AuthService {
     public AuthenticationResponse register(RegisterRequest registerRequest) {
         User user = User.builder()
                 .email(registerRequest.getEmail())
-                .role(Role.USER)
+                .role(Role.ROLE_USER)
                 .password(bCryptPasswordEncoder.encode(registerRequest.getPassword()))
                 .build();
         userRepository.save(user);
